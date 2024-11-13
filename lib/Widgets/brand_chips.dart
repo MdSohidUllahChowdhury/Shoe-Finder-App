@@ -16,16 +16,16 @@ class _BrandChipsState extends State<BrandChips> {
     'Bata',
     'Puma'
   ];
-  
+
   String? selected;
-   
-   @override
+
+  @override
   void initState() {
     selected =
         brandname[0]; //* init here the dec variable by using brand name index
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

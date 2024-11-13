@@ -5,28 +5,61 @@ import 'package:flutter/material.dart';
 
 class Utils {
   static customBar() {
-    return const Row(
-      children: [
-        Text(
-          ' Shoes \n Collection',
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(width: 8),
-        Expanded(
-          child: TextField(
-            decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Search',
-                border: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(255, 255, 255, 1)),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                )),
+    return Container(
+      height: 318,
+      width: 396,
+      margin: const EdgeInsets.all(15),
+      decoration: const BoxDecoration(
+        color: Color(0xff90CAF9),
+        borderRadius: BorderRadius.all(Radius.circular(24)),
+      ),
+      child: Column(
+        children: [
+          ListTile(
+            leading: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+            title: Image.asset('lib/Assets/images/barLogo.png'),
+            trailing: const CircleAvatar(
+              radius: 20,
+              backgroundImage: AssetImage('lib/Assets/images/profile.jpg'),
+            ),
           ),
-        )
-      ],
+          const ListTile(
+              title: Text(
+                'Shoe Finder',
+                style: TextStyle(
+                    fontSize: 32,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w200,
+                    fontFamily: 'Lato_Light'),
+              ),
+              subtitle: Text(
+                'Experience Fashion with Our Shoe Lineup',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                fillColor: Color(0xffE5F4FF),
+                filled: true,
+                suffixIcon: Icon(Icons.search_outlined),
+                hintText: "Search",
+                hintStyle: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w500,
+                ),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    borderSide: BorderSide.none),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

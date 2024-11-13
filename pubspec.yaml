@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_screenutil: ^5.9.0
   provider: ^6.1.2
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
@@ -28,8 +29,11 @@ flutter:
     - lib/Assets/images/
 
   fonts:
-    - family: Lato
+    - family: Lato_bold
       fonts:
         - asset: lib/Assets/fonts/Lato-Bold.ttf
+        - asset: lib/Assets/fonts/Lato-Light.ttf
+    - family: Lato_light
+      fonts:
         - asset: lib/Assets/fonts/Lato-Light.ttf
           weight: 700

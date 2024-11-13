@@ -11,7 +11,6 @@ class DisplayPage extends StatefulWidget {
 
 class _DisplayPageState extends State<DisplayPage> {
   int navigationindex = 0;
-
   List<Widget> page = [
     const HomeUI(),
     const Cart(),
