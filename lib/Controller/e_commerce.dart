@@ -24,6 +24,8 @@ class _DisplayPageState extends State<DisplayPage> {
         children: page,
       ),
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color(0xffE1E1E1),
+          elevation: 0,
           selectedFontSize: 0,
           unselectedFontSize: 0,
           currentIndex: navigationindex,

@@ -29,11 +29,10 @@ flutter:
     - lib/Assets/images/
 
   fonts:
-    - family: Lato_bold
+    - family: Popi
       fonts:
-        - asset: lib/Assets/fonts/Lato-Bold.ttf
-        - asset: lib/Assets/fonts/Lato-Light.ttf
+        - asset: lib/Assets/fonts/Popi.ttf
     - family: Lato_light
       fonts:
         - asset: lib/Assets/fonts/Lato-Light.ttf
-          weight: 700
+          

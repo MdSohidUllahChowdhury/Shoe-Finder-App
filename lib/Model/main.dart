@@ -13,11 +13,10 @@ void main() {
         debugShowCheckedModeBanner: false,
         home: const DisplayPage(),
         theme: ThemeData(
-            fontFamily: 'Lato_light',
+            fontFamily: 'Popi',
             colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromRGBO(254, 206, 1, 1),
-              primary: const Color.fromRGBO(254, 206, 1, 1),
-            ),
+                seedColor: const Color.fromRGBO(254, 206, 1, 1),
+                primary: const Color(0xff292929)),
             inputDecorationTheme: const InputDecorationTheme(
               prefixIconColor: Colors.grey,
               hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),

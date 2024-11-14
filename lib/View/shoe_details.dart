@@ -37,30 +37,49 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Details',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-        ),
-      ),
+      backgroundColor: const Color(0xffE1E1E1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          ListTile(
+            leading: InkWell(onTap: () => Navigator.pop(context),
+              child: Chip(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  backgroundColor: Colors.transparent,
+                  side: const BorderSide(
+                      color: Color(0xff292929), style: BorderStyle.solid),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35)),
+                  label: const Icon(Icons.keyboard_double_arrow_left_rounded)),
+            ),
+            trailing: Chip(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                backgroundColor: Colors.transparent,
+                side: const BorderSide(
+                    color: Color(0xff292929), style: BorderStyle.solid),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35)),
+                label: const Icon(Icons.favorite)),
+          ),
           Text(widget.product['title'] as String,
-              style:
-                  const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.3)),
           Image.asset(widget.product['imageUrl'] as String),
-          const SizedBox(
-            height: 25,
+          ListTile(
+            title: const Text(
+              'Price',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+              '\$${widget.product['price']}',
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
           ),
-          Text(
-            '\$${widget.product['price']}',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 15),
           SizedBox(
-            height: 50,
+            height: 60,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: (widget.product['sizes'] as List<int>).length,
@@ -75,7 +94,10 @@ class _DetailsPageState extends State<DetailsPage> {
                       });
                     },
                     child: Chip(
-                      label: Text(size.toString()),
+                      label: Text(size.toString(),
+                          style: sizeSelected == size
+                              ? const TextStyle(color: Colors.white)
+                              : const TextStyle(color: Colors.black54)),
                       backgroundColor: sizeSelected == size
                           ? Theme.of(context).colorScheme.primary
                           : null,
@@ -91,22 +113,30 @@ class _DetailsPageState extends State<DetailsPage> {
               onPressed: onTap,
               style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
-                  minimumSize: const Size(80, 50),
+                  minimumSize: const Size(364, 80),
                   elevation: 6),
               child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Icon(
-                    Icons.shopping_cart_outlined,
-                    color: Colors.black,
+                  Text(
+                    'Add To Cart',
+                    style: TextStyle(
+                        fontFamily: 'Lato_light',
+                        color: Colors.white,
+                        fontSize: 24,
+                        letterSpacing: 1.3),
                   ),
                   SizedBox(
                     width: 6,
                   ),
-                  Text(
-                    'Add To Cart',
-                    style: TextStyle(color: Colors.black),
-                  ),
+                  CircleAvatar(
+                    radius: 31,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.shopping_bag_outlined,
+                      size: 30,
+                    ),
+                  )
                 ],
               ),
             ),

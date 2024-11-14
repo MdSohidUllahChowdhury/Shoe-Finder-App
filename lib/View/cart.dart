@@ -15,12 +15,15 @@ class _CartState extends State<Cart> {
     final cart = context.watch<CartProvider>().cart;
 
     return Scaffold(
+      backgroundColor: const Color(0xffE1E1E1),
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         centerTitle: true,
         title: const Text(
           'Cart Items',
           style: TextStyle(
-              fontWeight: FontWeight.w700, letterSpacing: 1.5, fontSize: 25),
+              fontWeight: FontWeight.w200, letterSpacing: 1.5, fontSize: 23),
         ),
       ),
       body: ListView.builder(
@@ -30,11 +33,11 @@ class _CartState extends State<Cart> {
 
             return ListTile(
                 leading: SizedBox(
-                  height: 100,
-                  width: 50,
+                  height: 180,
+                  width: 70,
                   child: Image(
                     image: AssetImage(cartItems['imageUrl'] as String),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
                 title: Text(

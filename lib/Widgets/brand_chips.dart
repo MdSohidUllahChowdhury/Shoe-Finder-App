@@ -11,25 +11,25 @@ class _BrandChipsState extends State<BrandChips> {
   final List<String> brandname = [
     //* Brand Name Declear
     'All',
-    'Adidas',
-    'Nike',
-    'Bata',
-    'Puma'
+    'Runing',
+    'Life Style',
+    'Reguler',
+    'GYM'
   ];
 
   String? selected;
 
   @override
   void initState() {
-    selected =
-        brandname[0]; //* init here the dec variable by using brand name index
+    selected = brandname[0];
+    //* init here the dec variable by using brand name index
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 80,
+      height: 40,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: brandname.length,
@@ -44,21 +44,17 @@ class _BrandChipsState extends State<BrandChips> {
                   });
                 },
                 child: Chip(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                  ),
-                  label: Text(
-                    brand,
-                    style: const TextStyle(fontSize: 16),
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   backgroundColor: selected == brand
                       ? Theme.of(context).primaryColor
-                      : const Color.fromRGBO(245, 247, 249, 1),
-                  side: const BorderSide(
-                    color: Color.fromRGBO(245, 247, 249, 1),
-                  ),
+                      : Colors.white,
+                  side: const BorderSide(color: Color(0xff292929)),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
+                  label: Text(brand,
+                      style: selected == brand
+                          ? const TextStyle(fontSize: 14, color: Colors.white)
+                          : const TextStyle(fontSize: 14, color: Colors.black)),
                 ),
               ),
             );
